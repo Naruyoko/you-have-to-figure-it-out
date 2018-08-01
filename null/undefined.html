@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <style>
+      * {font-family:monospace;}
+      .hidden {display:none;}
+    </style>
+    <script>
+      function showhide(x,t){
+        toggleclass(x,"hidden",!t);
+      }
+      function toggleclass(x,c,t){
+        var o=document.getElementById(x).className;
+        if (!t){
+          document.getElementById(x).className=o.replace(new RegExp(c,"g"),"");
+        }else if (document.getElementById(x).className.search(c)==-1){
+          document.getElementById(x).className+=" "+c;
+        }
+        o=document.getElementById(x).className;
+        document.getElementById(x).className=o.replace(/  /g," ");
+      }
+    </script>
+  </head>
+  <body onkeydown="if (event.keyCode==39){document.getElementById(&quot;p&quot;).textContent=&quot;d8fa1102&quot;}">
+    <a href="./NaN.txt" class="hiddenlink" style="text-decoration:none;color:black" target="_blank">null</a>
+    <div id="p"></div>
+  </body>
+</html>

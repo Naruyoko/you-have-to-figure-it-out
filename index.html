@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>You have to figure it out.</title>
+    <style>
+      * {font-family:"Times New Roman";}
+      .hidden {display:none;}
+      .hiddenlink:link {text-decoration:inherit;cursor:pointer;}
+      .hiddenlink:hover {text-decoration:underline;}
+      .hiddenlink:active {text-decoration:underline;}
+    </style>
+    <script>
+      function showhide(x,t){
+        toggleclass(x,"hidden",!t);
+      }
+      function toggleclass(x,c,t){
+        var o=document.getElementById(x).className;
+        if (!t){
+          document.getElementById(x).className=o.replace(new RegExp(c,"g"),"");
+        }else if (document.getElementById(x).className.search(c)==-1){
+          document.getElementById(x).className+=" "+c;
+        }
+        o=document.getElementById(x).className;
+        document.getElementById(x).className=o.replace(/  /g," ");
+      }
+    </script>
+  </head>
+  <body onkeydown="if (event.keyCode==39){showhide(&quot;q&quot;,true)}">
+    <h1 onclick="showhide(&quot;tutorial&quot;,true)" style="cursor:pointer">You have to figure it out.</h1>
+    <div id="tutorial" class="hidden" style="border:1px black solid">
+      <h2>Tutorial/How to <a href="./null/undefined.html" class="hiddenlink" target="_blank" style="color:black">play</a></h2>
+      You have to figure it out.
+    </div>
+    <div id="q" class="hidden" style="border:210px magenta dotted">
+      <input type="password" id="pwaj"><button onclick="if (document.getElementById(&quot;pwaj&quot;).value==&quot;d8fa1102&quot;){showhide(&quot;wow&quot;,true)}"> </button>
+    </div>
+    <div id="wow" class="hidden" style="background-color:rgba(255,255,255,0.8);position:absolute;top:25px;left:10%;">
+      HEY.hold(more)
+    </div>
+  </body>
+</html>
