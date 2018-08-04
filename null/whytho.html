@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <style>
+      * {color:white;}
+      .hidden {display:none;}
+    </style>
+    <script>
+      function showhide(x,t){
+        toggleclass(x,"hidden",!t);
+      }
+      function toggleclass(x,c,t){
+        var o=document.getElementById(x).className;
+        if (!t){
+          document.getElementById(x).className=o.replace(new RegExp(c,"g"),"");
+        }else if (document.getElementById(x).className.search(c)==-1){
+          document.getElementById(x).className+=" "+c;
+        }
+        o=document.getElementById(x).className;
+        document.getElementById(x).className=o.replace(/  /g," ");
+      }
+      var b=[29,function (){return b[1]();}];
+      var c=0;
+      function fwefewjfoejmolwjfojeofjoejfojeoeojfofje(){
+        var v=hsvtorgb(c,1,1);
+        document.getElementById("beutifulcoulouawrs").style.backgroundColor="rgb("+v[0]+","+v[1]+","+v[2]+")";
+        c++;
+        b[2]();
+      }
+      function hsvtorgb(h,s,v){
+        var c=v*s;
+        H=h%360/60;
+        x=c*(1-Math.abs(H-Math.floor(H/2)*2-1));
+        var rgb;
+        if (h===undefined){
+          rgb=[0,0,0];
+        }else switch(Math.floor(H)){
+          case 0:
+            rgb=[c,x,0];
+            break;
+          case 1:
+            rgb=[x,c,0];
+            break;
+          case 2:
+            rgb=[0,c,x];
+            break;
+          case 3:
+            rgb=[0,x,c];
+            break;
+          case 4:
+            rgb=[x,0,c];
+            break;
+          case 5:
+            rgb=[c,0,x];
+            break;
+          default:
+            rgb=[0,0,0];
+            break;
+        }
+        var m=v-c;
+        return [(rgb[0]+m)*256,(rgb[1]+m)*256,(rgb[2]+m)*256];
+      }
+    </script>
+  </head>
+  <body>
+    <div id="beutifulcoulouawrs" style="width:16px;height:16px;background-color:black;border:3px black solid;" class="hidden"></div>
+    But there are nothing here.<br>
+    Therefore, this place doesn't exist.<br>
+    Since then, you don't exist.<br>
+    I know it's sad,<br>
+    But really feeling doesn't exist either<br>
+    <i>Sin</i>ce you don't exist.<br>
+    Alright click <span onclick="showhide(&quot;beutifulcoulouawrs&quot;,true);setInterval(fwefewjfoejmolwjfojeofjoejfojeoeojfofje,40);">here</span> to get yourself some beutiful colors<br>
+    In a sacrifice of this place existing.<br>
+    You'll gain your feeling,<br>
+    The sadness.<br>
+  </body>
+</html>
