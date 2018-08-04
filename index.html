@@ -25,7 +25,7 @@
       }
     </script>
   </head>
-  <body onkeydown="if (event.keyCode==39){showhide(&quot;q&quot;,true)}">
+  <body onkeydown="var k=event.keyCode;if (k==39){showhide(&quot;q&quot;,true)}else if (k==37){showhide(&quot;fortune&quot;,true)}">
     <h1 onclick="showhide(&quot;tutorial&quot;,true)" style="cursor:pointer">You have to figure it out.</h1>
     <div id="tutorial" class="hidden" style="border:1px black solid">
       <h2>Tutorial/How to <a href="./null/undefined.html" class="hiddenlink" target="_blank" style="color:black">play</a></h2>
@@ -36,6 +36,15 @@
     </div>
     <div id="wow" class="hidden" style="background-color:rgba(255,255,255,0.8);position:absolute;top:25px;left:10%;">
       HEY.hold(more)@./null/console
+    </div>
+    <div id="fortune" class="hidden">
+      You have to find italisization.<br>
+      <input id="q.ital" type="text" value="Copy">
+      <button onclick="if (document.getElementById(&quot;q.ital&quot;).value==&quot;Sin&quot;){showhide(&quot;1992&quot;,true)}">E</button><br>
+      <div id="unfortune" style="position:relative;top:-41px;left:0;background-color:black;height:45px;width:100%;"><span onclick="showhide(&quot;unfortune&quot;,false)">tile_black</span></div>
+    </div>
+    <div id="1992" class="hidden" style="font-family:&quot;Comic Sans MS&quot;,sans-serif;">
+      font
     </div>
   </body>
 </html>
