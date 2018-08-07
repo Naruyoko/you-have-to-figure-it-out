@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Messanger:29fd0a29</title>
+    <style>
+      * {font-family:"Arial";}
+      .hidden {display:none;}
+      .hiddenlink:link {text-decoration:inherit;cursor:pointer;}
+      .hiddenlink:hover {text-decoration:underline;}
+      .hiddenlink:active {text-decoration:underline;}
+      .lockfail {animation:lockani 0.8s}
+      @keyframes lockani {
+        0% {color:red}
+        15% {transform:translateX(5px)}
+        30% {transform:translateX(0)}
+        45% {transform:translateX(-5px)}
+        60% {transform:translateX(0);color:red;}
+        100% {color:#202020}
+      }
+    </style>
+    <script>
+      function showhide(x,t){
+        toggleclass(x,"hidden",!t);
+      }
+      function toggleclass(x,c,t){
+        var o=document.getElementById(x).className;
+        if (!t){
+          document.getElementById(x).className=o.replace(new RegExp(c,"g"),"");
+        }else if (document.getElementById(x).className.search(c)==-1){
+          document.getElementById(x).className+=" "+c;
+        }
+        o=document.getElementById(x).className;
+        document.getElementById(x).className=o.replace(/  /g," ");
+      }
+      var stage="login"
+      function send(){
+        var i=document.getElementById("input").value;
+        if (!i) return
+        addmessage("you",i);
+        if (stage=="login"){
+          if (i=="8ddEXXpassrword+++:)"){
+            showhide("lock",false);
+            var t;
+            setTimeout(function (){addmessage("system","Correct password, you now have access to the chat!")},t=Math.random()*200+300);
+            setTimeout(function (){addmessage("mysteriousperson","Hey there! I see you have gained access to the chat!")},t+=Math.random()*2000+3500);
+            setTimeout(function (){addmessage("mysteriousperson","So without a chitchat, let's get to the point.")},t+=Math.random()*2500+3000);
+            setTimeout(function (){addmessage("mysteriousperson","Can you say \"ok\", so I can verify that you're listening?")},t+=Math.random()*3000+3000);
+            stage="greetings1";
+          }else{
+            var t;
+            setTimeout(function (){addmessage("system","Wrong password, please check it.")},t=Math.random()*200+300);
+            setTimeout(function (){toggleclass("lock","lockfail",true)},t);
+            setTimeout(function (){toggleclass("lock","lockfail",false);},t+800);
+          }
+        }else if (stage=="greetings1"){
+          if (["ok","Ok","okay","Okay","ok.","Ok.","okay.","Okay.","ok!","Ok!","okay!","Okay!"].includes(i)){
+            var t;
+            setTimeout(function (){addmessage("mysteriousperson","Ok! So the secret is that ******** **** ** ******* ******** * *** ** ***** ** ******** *******.")},t=Math.random()*4000+5000);
+            setTimeout(function (){addmessage("mysteriousperson","You got it?")},t+=Math.random()*800+1100);
+          }
+        }
+        document.getElementById("input").value="";
+      }
+      function addmessage(sender,message){
+        if (sender=="system"){
+          document.getElementById("output").innerHTML+="<div style=\"float:left;width:80%;margin:4px;padding:3px;border-radius:4px;background-color:#f0e0e0;\">"+message+"</div>"
+        }else if (sender=="mysteriousperson"){
+          document.getElementById("output").innerHTML+="<div style=\"float:left;width:80%;margin:4px;padding:3px;border-radius:4px;background-color:#e0e0e0;\">"+message+"</div>"
+        }else if (sender=="you"){
+          document.getElementById("output").innerHTML+="<div style=\"float:right;width:80%;margin:4px;padding:3px;border-radius:4px;background-color:#f0f0e0;\">"+message+"</div>"
+        }
+        document.getElementById("output").scrollTop=document.getElementById("output").scrollHeight;
+      }
+      function press(k){
+        if (k==13){
+          send();
+        }
+      }
+    </script>
+  </head>
+  <body onkeydown="press(event.keyCode)">
+    <p style="z-index:1;background-color:rgba(240,240,240,0.8);">
+      <h1 style="margin:auto">Messanger</h1>
+      <h3 style="margin:auto">You are in chat <span style="color:olive;text-decoration:double;">29fd0a29</span><div id="lock" style="color:#202020;display:inline-block;">🔒</div>.</h3>
+    </p>
+    <div style="height:90%;width:100%;bottom:0;position:fixed;display:inline-block;">
+      <div id="output" style="height:85%;width:90%;margin:5% 0;padding:8px;resize:none;font-size:16px;border:1px #808080 solid;overflow-y:auto;"><div style="float:left;width:80%;margin:4px;padding:3px;border-radius:4px;background-color:#f0e0e0;">This chat is locked. Please type the password.</div></div>
+      <input id="input" type="text" style="width:80%;font-size:18px;">
+      <button onclick="send()">Send</button>
+    </div>
+  </body>
+</html>

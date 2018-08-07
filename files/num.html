@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>You have to figure it out.</title>
+    <title>????</title>
     <style>
       * {font-family:"Times New Roman";}
       .hidden {display:none;}
@@ -23,8 +23,8 @@
         o=document.getElementById(x).className;
         document.getElementById(x).className=o.replace(/  /g," ");
       }
-      var good=true;
-      function input(){
+      var num=""
+      function input(i){
         var i=document.getElementById("input").value;
         if (i==="HEY.hold(more)"){
           document.write("<a href=\"./whytho.html\">Jump link</a><br>You can also left key.");
@@ -36,15 +36,13 @@
       }
       function press(k){
         if (k==13){
-          input();
-        }else if (k==30){
-          document.body.innerHTML+="<br>".repeat(100)+"Konami has their code everywhere!"
+          done();
         }
       }
+      function done(){}
     </script>
   </head>
   <body onkeydown="press(event.keyCode)">
-    <h3>Console <span style="color:#fefefe">?</span></h3>
-    <textarea id="input" style="width:100%;height:40%;resize:none;"></textarea>
+    ...wip
   </body>
 </html>

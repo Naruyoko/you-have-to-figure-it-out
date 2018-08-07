@@ -23,19 +23,40 @@
         o=document.getElementById(x).className;
         document.getElementById(x).className=o.replace(/  /g," ");
       }
+      var konami={
+        sequence:[38,38,40,40,37,39,37,39,66,65],
+        place:0,
+        done:false
+      };
+      function press(k){
+        if (k==39){
+          showhide("q",true);
+        }else if (k==37){
+          showhide("fortune",true);
+        }
+        if ((k==konami.sequence[konami.place])&&!konami.done){
+          konami.place++;
+          if (konami.place==10){
+            konami.done=true;
+            document.getElementById("no.").innerHTML="No. ".repeat(235)+"123033"+" No.".repeat(764)+" You cheater.";
+          }
+        }else{
+          konami.place=0;
+        }
+      }
     </script>
   </head>
-  <body onkeydown="var k=event.keyCode;if (k==39){showhide(&quot;q&quot;,true)}else if (k==37){showhide(&quot;fortune&quot;,true)}">
+  <body onkeydown="press(event.keyCode)">
     <h1 onclick="showhide(&quot;tutorial&quot;,true)" style="cursor:pointer">You have to figure it out.</h1>
     <div id="tutorial" class="hidden" style="border:1px black solid">
       <h2>Tutorial/How to <a href="./null/undefined.html" class="hiddenlink" target="_blank" style="color:black">play</a></h2>
       You have to figure it out.
     </div>
     <div id="q" class="hidden" style="border:210px magenta dotted">
-      <input type="password" id="pwaj"><button onclick="if (document.getElementById(&quot;pwaj&quot;).value==&quot;d8fa1102&quot;){showhide(&quot;wow&quot;,true)}"> </button>
+      <input type="password" id="pwaj"><button onclick="if (document.getElementById(&quot;pwaj&quot;).value==&quot;d8fa1102&quot;){showhide(&quot;wow&quot;,true)}else if (document.getElementById(&quot;pwaj&quot;).value==&quot;Comic Sans MS&quot;){showhide(&quot;hmm&quot;,true)}"> </button>
     </div>
     <div id="wow" class="hidden" style="background-color:rgba(255,255,255,0.8);position:absolute;top:25px;left:10%;">
-      HEY.hold(more)@./null/console
+      HEY.hold(more)@<a href="./null/console.html" class="hiddenlink" target="_blank" style="color:black">&lt;anonymous&gt;</a>
     </div>
     <div id="fortune" class="hidden">
       You have to find italisization.<br>
@@ -46,5 +67,10 @@
     <div id="1992" class="hidden" style="font-family:&quot;Comic Sans MS&quot;,sans-serif;">
       font
     </div>
+    <div id="hmm" class="hidden">
+      Hello, can you, like, find the code? Thanks. <a href="./files/num.html">Here's the link.</a><br>
+      Also, I have <a href="./message/29fd0a29.html" target="_blank">a secret to tell you</a>, please go to Console, put &quot;<i>m.p.29fd0a29</i>&quot; and decode the output. I can't tell you how.<br>
+    </div>
+    <div id="no." style="white-space:nowrap;color:red"></div>
   </body>
 </html>
