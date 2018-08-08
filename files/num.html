@@ -3,7 +3,7 @@
   <head>
     <title>????</title>
     <style>
-      * {font-family:"Times New Roman";}
+      * {font-family:"Verdana",sans-serif;}
       .hidden {display:none;}
       .hiddenlink:link {text-decoration:inherit;cursor:pointer;}
       .hiddenlink:hover {text-decoration:underline;}
@@ -23,26 +23,57 @@
         o=document.getElementById(x).className;
         document.getElementById(x).className=o.replace(/  /g," ");
       }
-      var num=""
-      function input(i){
-        var i=document.getElementById("input").value;
-        if (i==="HEY.hold(more)"){
-          document.write("<a href=\"./whytho.html\">Jump link</a><br>You can also left key.");
-        }else if (i==="m.p.29fd0a29"){
-          document.write("OGRkRVhYcGFzc3J3b3JkKysrOik=");
+      var num="";
+      function enter(){
+        if (num=="290821"){
+          document.getElementById("output").value="wWP3s+iw";
+          document.getElementById("output").style.color="";
         }else{
-          document.write("null")
+          document.getElementById("output").value="ERROR";
+          document.getElementById("output").style.color="red";
         }
       }
-      function press(k){
-        if (k==13){
-          done();
+      function input(i){
+        if (i=="C"){
+          num="";
+        }else if (i=="I"){
+          var r=enter();
+          num="";
+        }else{
+          num+=i;
+        }
+        if (i!="I"){
+          document.getElementById("output").value=num;
+          document.getElementById("output").style.color="";
         }
       }
-      function done(){}
     </script>
   </head>
-  <body onkeydown="press(event.keyCode)">
-    ...wip
+  <body>
+    <div style="border:1px black solid;padding:10px;width:160px;">
+      <input id="output" type="text" style="width:150px;height:30px;font-family:mono-space;font-size:24px;" readonly>
+      <table style="width:140px;margin:auto;">
+        <tr>
+          <td><button style="height:22px;width:50px" onclick="input(7)">7</button></td>
+          <td><button style="height:22px;width:50px" onclick="input(8)">8</button></td>
+          <td><button style="height:22px;width:50px" onclick="input(9)">9</button></td>
+        </tr>
+        <tr>
+          <td><button style="height:22px;width:50px" onclick="input(4)">4</button></td>
+          <td><button style="height:22px;width:50px" onclick="input(5)">5</button></td>
+          <td><button style="height:22px;width:50px" onclick="input(6)">6</button></td>
+        </tr>
+        <tr>
+          <td><button style="height:22px;width:50px" onclick="input(1)">1</button></td>
+          <td><button style="height:22px;width:50px" onclick="input(2)">2</button></td>
+          <td><button style="height:22px;width:50px" onclick="input(3)">3</button></td>
+        </tr>
+        <tr>
+          <td><button style="height:22px;width:50px" onclick="input(&quot;C&quot;)">C</button></td>
+          <td><button style="height:22px;width:50px" onclick="input(0)">0</button></td>
+          <td><button style="height:22px;width:50px" onclick="input(&quot;I&quot;)">I</button></td>
+        </tr>
+      </table>
+    </div>
   </body>
 </html>

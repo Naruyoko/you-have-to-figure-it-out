@@ -27,18 +27,22 @@
       function input(){
         var i=document.getElementById("input").value;
         if (i==="HEY.hold(more)"){
-          document.write("<a href=\"./whytho.html\">Jump link</a><br>You can also left key.");
-        }else if (i==="m.p.29fd0a29"){
+          document.write("<a href=\"./whytho.html\" target=\"_target\">Jump link</a><br>You can also left key.");
+        }else if (i==="m.c.29fd0a29.p"){
           document.write("OGRkRVhYcGFzc3J3b3JkKysrOik=");
+        }else if (i==="m.c.33a0e7d2.u.mysteriousperson.runCode.p"){
+          document.write(".g[W#@q2");
         }else{
           document.write("null")
         }
       }
+      downpressed=false;
       function press(k){
         if (k==13){
           input();
-        }else if (k==30){
-          document.body.innerHTML+="<br>".repeat(100)+"Konami has their code everywhere!"
+        }else if ((k==40)&&!downpressed){
+          document.body.innerHTML+="<br>".repeat(100)+"Konami has their code everywhere!";
+          downpressed=true;
         }
       }
     </script>

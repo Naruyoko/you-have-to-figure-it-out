@@ -44,24 +44,37 @@
             setTimeout(function (){addmessage("system","Correct password, you now have access to the chat!")},t=Math.random()*200+300);
             setTimeout(function (){addmessage("mysteriousperson","Hey there! I see you have gained access to the chat!")},t+=Math.random()*2000+3500);
             setTimeout(function (){addmessage("mysteriousperson","So without a chitchat, let's get to the point.")},t+=Math.random()*2500+3000);
-            setTimeout(function (){addmessage("mysteriousperson","Can you say \"ok\", so I can verify that you're listening?")},t+=Math.random()*3000+3000);
-            stage="greetings1";
+            setTimeout(function (){addmessage("mysteriousperson","Can you say \"ok\", so I can verify that you're listening?");stage="greetings";},t+=Math.random()*3000+3000);
           }else{
             var t;
             setTimeout(function (){addmessage("system","Wrong password, please check it.")},t=Math.random()*200+300);
             setTimeout(function (){toggleclass("lock","lockfail",true)},t);
             setTimeout(function (){toggleclass("lock","lockfail",false);},t+800);
           }
-        }else if (stage=="greetings1"){
+        }else if (stage=="greetings"){
           if (["ok","Ok","okay","Okay","ok.","Ok.","okay.","Okay.","ok!","Ok!","okay!","Okay!"].includes(i)){
             var t;
             setTimeout(function (){addmessage("mysteriousperson","Ok! So the secret is that ******** **** ** ******* ******** * *** ** ***** ** ******** *******.")},t=Math.random()*4000+5000);
-            setTimeout(function (){addmessage("mysteriousperson","You got it?")},t+=Math.random()*800+1100);
+            setTimeout(function (){addmessage("mysteriousperson","You got it?");stage="censor";},t+=Math.random()*800+1100);
+          }
+        }else if (stage=="censor"){
+          if (["yes","Yes","yes.","Yes.","yes!","Yes!","sure","Sure","sure.","Sure.","sure!","Sure!"].includes(i)){
+            setTimeout(function (){addmessage("mysteriousperson","Alright, inform me when you got it!");stage="waitans";},Math.random()*1500+3500);
+          }else if (["no","No","no.","No.","no!","No!","nope","Nope","nope.","Nope.","nope!","Nope!"].includes(i)){
+            var t;
+            setTimeout(function (){addmessage("mysteriousperson","No? Oh, then how would I...")},t=Math.random()*3500+4500);
+            setTimeout(function (){addmessage("mysteriousperson","Oh, I know! I can hide it! Go look into another chat!")},t+=Math.random()*5000+5500);
+            setTimeout(function (){addmessage("mysteriousperson","<a href=\"./33a0e7d2.html\" target=\"_blank\" onclick=\"stage=\\\"waitans\\\"\">33a0e7d2</a>");stage="anotherchat";},t+=Math.random()*250+450);
+          }else{
+            setTimeout(function (){addmessage("mysteriousperson","Umm, I'll take that as yes. Please inform me when you got it!");stage="waitans";},Math.random()*2500+4500);
           }
         }
         document.getElementById("input").value="";
       }
       function addmessage(sender,message){
+        if (!message){
+          message=" ";
+        }
         if (sender=="system"){
           document.getElementById("output").innerHTML+="<div style=\"float:left;width:80%;margin:4px;padding:3px;border-radius:4px;background-color:#f0e0e0;\">"+message+"</div>"
         }else if (sender=="mysteriousperson"){
@@ -81,7 +94,7 @@
   <body onkeydown="press(event.keyCode)" onload="addmessage(&quot;system&quot;,&quot;This chat is locked. Please type the password.&quot;)">
     <p style="z-index:1;background-color:rgba(240,240,240,0.8);">
       <h1 style="margin:auto">Messanger</h1>
-      <h3 style="margin:auto">You are in chat <span style="color:olive;text-decoration:double;">29fd0a29</span><div id="lock" style="color:#202020;display:inline-block;">🔒</div>.</h3>
+      <h3 style="margin:auto">You are in chat <span style="color:olive;text-decoration:double;">29fd0a29</span><div id="lock" style="color:#202020;display:inline-block;">🔒&#xfe0e;</div>.</h3>
     </p>
     <div style="height:90%;width:100%;position:fixed;display:inline-block;">
       <div id="output" style="height:85%;width:90%;padding:8px;resize:none;font-size:16px;border:1px #808080 solid;overflow-y:auto;"></div>
