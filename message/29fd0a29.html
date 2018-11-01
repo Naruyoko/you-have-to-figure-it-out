@@ -52,22 +52,36 @@
             setTimeout(function (){toggleclass("lock","lockfail",false);},t+800);
           }
         }else if (stage=="greetings"){
+          stage="wait";
           if (["ok","Ok","okay","Okay","ok.","Ok.","okay.","Okay.","ok!","Ok!","okay!","Okay!"].includes(i)){
             var t;
             setTimeout(function (){addmessage("mysteriousperson","Ok! So the secret is that ******** **** ** ******* ******** * *** ** ***** ** ******** *******.")},t=Math.random()*4000+5000);
             setTimeout(function (){addmessage("mysteriousperson","You got it?");stage="censor";},t+=Math.random()*800+1100);
           }
         }else if (stage=="censor"){
+          stage="wait";
           if (["yes","Yes","yes.","Yes.","yes!","Yes!","sure","Sure","sure.","Sure.","sure!","Sure!"].includes(i)){
             setTimeout(function (){addmessage("mysteriousperson","Alright, inform me when you got it!");stage="waitans";},Math.random()*1500+3500);
           }else if (["no","No","no.","No.","no!","No!","nope","Nope","nope.","Nope.","nope!","Nope!"].includes(i)){
             var t;
             setTimeout(function (){addmessage("mysteriousperson","No? Oh, then how would I...")},t=Math.random()*3500+4500);
             setTimeout(function (){addmessage("mysteriousperson","Oh, I know! I can hide it! Go look into another chat!")},t+=Math.random()*5000+5500);
-            setTimeout(function (){addmessage("mysteriousperson","<a href=\"./33a0e7d2.html\" target=\"_blank\" onclick=\"stage=\\\"waitans\\\"\">33a0e7d2</a>");stage="anotherchat";},t+=Math.random()*250+450);
+            setTimeout(function (){addmessage("mysteriousperson","<a href=\"./33a0e7d2.html\" target=\"_blank\" onclick=\"stage=\\\"waitans\\\"\">33a0e7d2</a>")},t+=Math.random()*250+450);
+            setTimeout(function (){addmessage("mysteriousperson","Tell me if you got the code!");stage="waitans";},t+=Math.random()*600+890);
           }else{
             setTimeout(function (){addmessage("mysteriousperson","Umm, I'll take that as yes. Please inform me when you got it!");stage="waitans";},Math.random()*2500+4500);
           }
+        }else if (stage="waitans"){
+          stage="wait"
+          if (i=="wWP3s+iw"){
+            var t;
+            setTimeout(function (){addmessage("mysteriousperson","8d92qooA")},t+=Math.random()*2000+2000);
+            setTimeout(function (){addmessage("mysteriousperson","Put that in.");stage="secretbreak";},t+=Math.random()*800+1200);
+          }else{
+            setTimeout(function (){addmessage("mysteriousperson","Seems to be not working...");stage="wait";},t+=Math.random()*2000+2000);
+          }
+        }else if (stage=="secretbreak"){
+          addmessage("system","null");
         }
         document.getElementById("input").value="";
       }
