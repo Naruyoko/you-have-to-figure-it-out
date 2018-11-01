@@ -29,6 +29,7 @@
         if (!i) return
         addmessage("you",i);
         if (stage=="sendcode"){
+          stage="wait";
           var t;
           setTimeout(function (){addmessage("mysteriousperson","Alright, let me check...")},t=Math.random()*2000+2500);
           if (i===".g[W#@q2"){
@@ -37,7 +38,7 @@
             setTimeout(function (){addmessage("mysteriousperson","null");alert("So, long story short press down at the Console.");},t+=Math.random()*2500+3000);
             setTimeout(function (){addmessage("system","This chat has been closed by mysteriousperson.");document.getElementById("input").readOnly=true;stage="chatclosed";},t+=Math.random()*5000+7500);
           }else{
-            setTimeout(function (){addmessage("mysteriousperson","Um, it doesn't work... Can you check?")},t+=Math.random()*5000+5500);
+            setTimeout(function (){addmessage("mysteriousperson","Um, it doesn't work... Can you check?");stage="sendcode";},t+=Math.random()*5000+5500);
           }
         }
         document.getElementById("input").value="";
